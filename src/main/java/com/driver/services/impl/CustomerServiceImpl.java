@@ -44,7 +44,6 @@ public class CustomerServiceImpl implements CustomerService {
 		//Avoid using SQL query
 		TripBooking tripBooking = new TripBooking();
 		return tripBooking;
-
 	}
 
 	@Override
@@ -58,7 +57,7 @@ public class CustomerServiceImpl implements CustomerService {
 		Cab cab = tripBooking.getDriver().getCab();
 		cab.setAvailable(Boolean.TRUE);
 
-		driverRepository2.save(tripBooking.getDriver());
+		tripBookingRepository2.save(tripBooking);
 	}
 
 	@Override
