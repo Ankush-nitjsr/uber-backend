@@ -46,7 +46,7 @@ public class CustomerServiceImpl implements CustomerService {
 		Driver driver = new Driver();
 		List<Driver> driverList = driverRepository2.findAll();
 		for (Driver newDriver: driverList) {
-			if (newDriver.getCab().getAvailable() == Boolean.TRUE){
+			if (newDriver.getCab().getAvailable()){
 				if (newDriver == null || driver.getDriverId() > newDriver.getDriverId()){
 					driver = newDriver;
 				}
@@ -69,7 +69,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 		driverRepository2.save(driver);
 		customerRepository2.save(customer);
-		// this child "tripBooking" will be automatically saved
+
+		tripBookingRepository2.save(tripBooking);
 
 		return tripBooking;
 	}
