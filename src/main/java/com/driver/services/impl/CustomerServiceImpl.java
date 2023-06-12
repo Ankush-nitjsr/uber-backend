@@ -47,7 +47,7 @@ public class CustomerServiceImpl implements CustomerService {
 		List<Driver> driverList = driverRepository2.findAll();
 		for (Driver newDriver: driverList) {
 			if (newDriver.getCab().getAvailable()){
-				if (newDriver == null || driver.getDriverId() > newDriver.getDriverId()){
+				if (driver == null || driver.getDriverId() > newDriver.getDriverId()){
 					driver = newDriver;
 				}
 			}
